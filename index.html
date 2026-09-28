@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>Khyati &amp; Aditya — Our Wedding Celebrations | The Dhawala Resort Sariska</title>
+  
+  <meta name="description" content="Khyati and Aditya invite you to share in their wedding celebrations at The Dhawala Resort Sariska, Alwar, Rajasthan. Open the envelope to see more.">
+  <meta property="og:title" content="Khyati &amp; Aditya have something to tell you 🙂">
+  <meta property="og:description" content="Tap, scratch, and see for yourself → 3rd &amp; 4th December 2026 · The Dhawala Resort Sariska, Rajasthan">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#FAF3E6">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@400;500;600;700&family=Parisienne&family=Pinyon+Script&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- Font Awesome 6 & Bootstrap Icons for Classy Vector Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Custom Royal Wedding Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Background Canvas & Film Grain -->
+  <div id="page-bg" aria-hidden="true"></div>
+  <div id="veil" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ======================================================================
+       SVG ASSET LIBRARY & CUSTOM ROYAL EMBLEMS
+       ====================================================================== -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <!-- Deckle Edge Paper Displacement Filter -->
+      <filter id="deckle-edge">
+        <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="7" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+
+      <!-- Flap Gradients -->
+      <linearGradient id="envL" x1="0" y1="0" x2=".55" y2="1">
+        <stop offset="0" stop-color="#FCFBF5"/>
+        <stop offset=".5" stop-color="#F4F2E7"/>
+        <stop offset="1" stop-color="#E8E5D5"/>
+      </linearGradient>
+      <linearGradient id="envR" x1="1" y1="0" x2=".45" y2="1">
+        <stop offset="0" stop-color="#FBFAF4"/>
+        <stop offset=".5" stop-color="#F1EFE3"/>
+        <stop offset="1" stop-color="#E5E2D1"/>
+      </linearGradient>
+
+      <!-- Gold Foil Gradient -->
+      <linearGradient id="g-gold" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#F2E3B8"/>
+        <stop offset=".35" stop-color="#DCBB72"/>
+        <stop offset=".7" stop-color="#C49F4E"/>
+        <stop offset="1" stop-color="#8E6E24"/>
+      </linearGradient>
+
+      <linearGradient id="rim" x1=".18" y1="0" x2=".82" y2="1">
+        <stop offset="0" stop-color="#F6E7B4"/>
+        <stop offset=".28" stop-color="#DEBE73"/>
+        <stop offset=".58" stop-color="#BF9C46"/>
+        <stop offset=".82" stop-color="#9A7A2A"/>
+        <stop offset="1" stop-color="#7B5F1B"/>
+      </linearGradient>
+
+      <linearGradient id="face" x1=".3" y1="0" x2=".7" y2="1">
+        <stop offset="0" stop-color="#D9BA71"/>
+        <stop offset=".5" stop-color="#C9A659"/>
+        <stop offset="1" stop-color="#AC8A3B"/>
+      </linearGradient>
+
+      <clipPath id="heartClip">
+        <path d="M50 96 C 17 74, 2 55, 2 35.5 A 27.5 27.5 0 0 1 50 17 A 27.5 27.5 0 0 1 98 35.5 C 98 55, 83 74, 50 96 Z"/>
+      </clipPath>
+
+      <symbol id="heart" viewBox="0 0 24 24">
+        <path d="M12 21s-8-5.2-8-11a4.6 4.6 0 0 1 8-3.1A4.6 4.6 0 0 1 20 10c0 5.8-8 11-8 11z"/>
+      </symbol>
+
+      <!-- Royal Decorative Divider Rule -->
+      <symbol id="fine-rule" viewBox="0 0 190 16">
+        <g stroke="currentColor" fill="none" stroke-linecap="round">
+          <path d="M16 8 H78" stroke-width=".85"/>
+          <path d="M112 8 H174" stroke-width=".85"/>
+          <path d="M71 4.4 L78 8 L71 11.6" stroke-width=".85"/>
+          <path d="M119 4.4 L112 8 L119 11.6" stroke-width=".85"/>
+          <path d="M86 8 C 86 4.4, 82 4.1, 82 6.6 C 82 8.5, 84.6 8.7, 86 8" stroke-width=".8"/>
+          <path d="M104 8 C 104 4.4, 108 4.1, 108 6.6 C 108 8.5, 105.4 8.7, 104 8" stroke-width=".8"/>
+          <path d="M16 8 C 12.5 5.6, 9 5.8, 7 8 C 9 10.2, 12.5 10.4, 16 8 Z" stroke-width=".7"/>
+          <path d="M174 8 C 177.5 5.6, 181 5.8, 183 8 C 181 10.2, 177.5 10.4, 174 8 Z" stroke-width=".7"/>
+        </g>
+        <g fill="currentColor">
+          <path d="M95 1.6 L99.4 8 L95 14.4 L90.6 8 Z"/>
+          <circle cx="95" cy="8" r="1.15" fill="#FBF6EC"/>
+        </g>
+      </symbol>
+
+      <!-- Heart Centre Divider Rule -->
+      <symbol id="rule-heart" viewBox="0 0 190 16">
+        <g stroke="currentColor" fill="none" stroke-linecap="round">
+          <path d="M16 8 H76" stroke-width=".85"/>
+          <path d="M114 8 H174" stroke-width=".85"/>
+          <path d="M69 4.4 L76 8 L69 11.6" stroke-width=".85"/>
+          <path d="M121 4.4 L114 8 L121 11.6" stroke-width=".85"/>
+          <path d="M16 8 C 12.5 5.6, 9 5.8, 7 8 C 9 10.2, 12.5 10.4, 16 8 Z" stroke-width=".7"/>
+          <path d="M174 8 C 177.5 5.6, 181 5.8, 183 8 C 181 10.2, 177.5 10.4, 174 8 Z" stroke-width=".7"/>
+        </g>
+        <path d="M95 14.2 C 88.4 9.6, 85.6 6.9, 85.6 4.9 A 2.9 2.9 0 0 1 95 3.2 A 2.9 2.9 0 0 1 104.4 4.9 C 104.4 6.9, 101.6 9.6, 95 14.2 Z" fill="currentColor"/>
+      </symbol>
+
+      <!-- ==================================================================
+           PREMIUM HERALDIC CREST MONOGRAM — K & A
+           Royal shield with laurel wreath, crown finial & serif letterforms
+           ================================================================== -->
+      <symbol id="royal-monogram-element" viewBox="0 0 240 240">
+        <defs>
+          <linearGradient id="crown-gold" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#F8EAB0"/>
+            <stop offset="0.4" stop-color="#D4A843"/>
+            <stop offset="1" stop-color="#8E6120"/>
+          </linearGradient>
+          <linearGradient id="shield-fill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#F7F2E8"/>
+            <stop offset="1" stop-color="#EDE4D0"/>
+          </linearGradient>
+        </defs>
+
+        <!-- ── Outer thin double-ring ── -->
+        <circle cx="120" cy="115" r="97" fill="none" stroke="url(#crown-gold)" stroke-width="1"/>
+        <circle cx="120" cy="115" r="91" fill="none" stroke="url(#crown-gold)" stroke-width="0.5" stroke-dasharray="3 3.5"/>
+
+        <!-- ── Filled ivory disc background ── -->
+        <circle cx="120" cy="115" r="90" fill="url(#shield-fill)" opacity="0.96"/>
+
+        <!-- ── LEFT LAUREL BRANCH ── -->
+        <g fill="none" stroke="url(#crown-gold)" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+          <!-- stem -->
+          <path d="M78 185 C 70 170, 46 150, 36 115"/>
+          <!-- leaves along stem -->
+          <path d="M70 178 C 58 174, 51 162, 57 154" fill="url(#crown-gold)" stroke="none" opacity=".88"/>
+          <path d="M70 178 C 65 166, 54 160, 57 154" fill="none" stroke="url(#crown-gold)" stroke-width="0.8"/>
+          <path d="M62 165 C 50 162, 43 150, 48 142" fill="url(#crown-gold)" stroke="none" opacity=".82"/>
+          <path d="M62 165 C 57 153, 46 148, 48 142" fill="none" stroke="url(#crown-gold)" stroke-width="0.8"/>
+          <path d="M54 149 C 43 148, 37 136, 41 128" fill="url(#crown-gold)" stroke="none" opacity=".78"/>
+          <path d="M54 149 C 49 138, 38 134, 41 128" fill="none" stroke="url(#crown-gold)" stroke-width="0.8"/>
+          <path d="M47 133 C 38 133, 33 121, 37 114" fill="url(#crown-gold)" stroke="none" opacity=".72"/>
+          <path d="M47 133 C 42 122, 34 119, 37 114" fill="none" stroke="url(#crown-gold)" stroke-width="0.8"/>
+        </g>
+
+        <!-- ── RIGHT LAUREL BRANCH (mirror) ── -->
+        <g fill="none" stroke="url(#crown-gold)" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M162 185 C 170 170, 194 150, 204 115"/>
+          <path d="M170 178 C 182 174, 189 162, 183 154" fill="url(#crown-gold)" stroke="none" opacity=".88"/>
+          <path d="M170 178 C 175 166, 186 160, 183 154" fill="none" stroke="url(#crown-gold)" stroke-width="0.8"/>
+          <path d="M178 165 C 190 162, 197 150, 192 142" fill="url(#crown-gold)" stroke="none" opacity=".82"/>
+          <path d="M178 165 C 183 153, 194 148, 192 142" fill="none" stroke="url(#crown-gold)" stroke-width="0.8"/>
+          <path d="M186 149 C 197 148, 203 136, 199 128" fill="url(#crown-gold)" stroke="none" opacity=".78"/>
+          <path d="M186 149 C 191 138, 202 134, 199 128" fill="none" stroke="url(#crown-gold)" stroke-width="0.8"/>
+          <path d="M193 133 C 202 133, 207 121, 203 114" fill="url(#crown-gold)" stroke="none" opacity=".72"/>
+          <path d="M193 133 C 198 122, 206 119, 203 114" fill="none" stroke="url(#crown-gold)" stroke-width="0.8"/>
+        </g>
+
+        <!-- ── Laurel tie ribbon at bottom ── -->
+        <path d="M78 185 C 95 191, 145 191, 162 185 C 148 195, 120 198, 92 195 Z"
+              fill="url(#crown-gold)" opacity="0.7"/>
+        <path d="M120 185 L114 196 M120 185 L126 196" stroke="url(#crown-gold)" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.85"/>
+
+        <!-- ── ROYAL CROWN (5-point heraldic) ── -->
+        <g transform="translate(120,27)" fill="url(#crown-gold)">
+          <!-- Band base -->
+          <rect x="-22" y="0" width="44" height="9" rx="2"/>
+          <!-- 5 rising points: outer tall, inner short -->
+          <polygon points="-22,-2 -19,0 -22,0" fill="url(#crown-gold)" opacity="0"/>
+          <!-- left tall point -->
+          <path d="M-18 0 C-18 0, -15 -18, -12 -20 C -9 -18, -9 0 Z"/>
+          <!-- left short point -->
+          <path d="M-8 0 C-8 0, -6 -10, -4 -12 C -2 -10, -2 0 Z"/>
+          <!-- centre tall point -->
+          <path d="M-4 0 C-4 0, 0 -24, 0 -26 C 0 -24, 4 0, 4 0 Z"/>
+          <!-- right short point -->
+          <path d="M2 0 C 2 0, 4 -10, 6 -12 C 8 -10, 8 0 Z"/>
+          <!-- right tall point -->
+          <path d="M9 0 C 9 0, 12 -18, 15 -20 C 18 -18, 18 0 Z"/>
+          <!-- Jewel circles -->
+          <circle cx="-12" cy="-20" r="2.5" fill="#F8EAB0" stroke="#C49F4E" stroke-width="0.5"/>
+          <circle cx="12" cy="-20" r="2.5" fill="#F8EAB0" stroke="#C49F4E" stroke-width="0.5"/>
+          <circle cx="0" cy="-26" r="3" fill="#F8EAB0" stroke="#C49F4E" stroke-width="0.5"/>
+          <circle cx="-5" cy="-12" r="1.8" fill="#F8EAB0" stroke="#C49F4E" stroke-width="0.5"/>
+          <circle cx="5" cy="-12" r="1.8" fill="#F8EAB0" stroke="#C49F4E" stroke-width="0.5"/>
+        </g>
+
+        <!-- ── Thin gold rule under crown ── -->
+        <line x1="78" y1="52" x2="162" y2="52" stroke="url(#crown-gold)" stroke-width="0.8" opacity="0.7"/>
+
+        <!-- ── LETTER K — navy, clean serif ── -->
+        <g>
+          <!-- Stem -->
+          <rect x="72" y="68" width="10" height="84" rx="1.5" fill="#1B3A5C"/>
+          <!-- Upper arm: diagonal from mid-stem to upper right -->
+          <path d="M82 110 L82 104 L127 68 L136 68 L136 74 L94 108 Z" fill="#1B3A5C"/>
+          <!-- Lower arm: diagonal from mid-stem to lower right -->
+          <path d="M82 116 L82 122 L127 152 L136 152 L136 146 L94 112 Z" fill="#1B3A5C"/>
+          <!-- Serif top -->
+          <rect x="68" y="68" width="18" height="4.5" rx="1" fill="#1B3A5C"/>
+          <!-- Serif bottom -->
+          <rect x="68" y="147.5" width="18" height="4.5" rx="1" fill="#1B3A5C"/>
+        </g>
+
+        <!-- ── LETTER A — gold, clean serif ── -->
+        <g fill="url(#crown-gold)">
+          <!-- Left diagonal leg -->
+          <path d="M116 152 L138 68 L146 68 L168 152 L158 152 L142 90 L126 152 Z"/>
+          <!-- Crossbar -->
+          <rect x="126" y="118" width="30" height="8" rx="1.5"/>
+          <!-- Serif bottom-left -->
+          <rect x="110" y="147" width="18" height="5" rx="1"/>
+          <!-- Serif bottom-right -->
+          <rect x="156" y="147" width="18" height="5" rx="1"/>
+        </g>
+
+        <!-- ── Thin gold divider below letters ── -->
+        <line x1="78" y1="162" x2="162" y2="162" stroke="url(#crown-gold)" stroke-width="0.8" opacity="0.7"/>
+
+        <!-- ── KHYATI & ADITYA name label ── -->
+        <text x="120" y="176" text-anchor="middle"
+              font-family="Cormorant Garamond, Georgia, serif"
+              font-size="10.5" font-weight="600" letter-spacing="0.22em" fill="#1B3A5C">
+          KHYATI &amp; ADITYA
+        </text>
+      </symbol>
+
+      <!-- 3D Antique Gold Wax Seal with Intertwined K&A -->
+      <symbol id="waxseal" viewBox="0 0 100 100">
+        <path d="M50 96 C 17 74, 2 55, 2 35.5 A 27.5 27.5 0 0 1 50 17 A 27.5 27.5 0 0 1 98 35.5 C 98 55, 83 74, 50 96 Z" fill="url(#rim)"/>
+        <g clip-path="url(#heartClip)">
+          <ellipse cx="30" cy="26" rx="26" ry="15" fill="#FFF8DC" opacity=".42" transform="rotate(-32 30 26)"/>
+          <ellipse cx="74" cy="72" rx="30" ry="18" fill="#6B5115" opacity=".28" transform="rotate(-28 74 72)"/>
+        </g>
+        <path d="M50 85.5 C 24 67, 12.5 53, 12.5 37 A 20.6 20.6 0 0 1 50 25.4 A 20.6 20.6 0 0 1 87.5 37 C 87.5 53, 76 67, 50 85.5 Z" fill="url(#face)" stroke="#7B5F1B" stroke-width="1" opacity=".98"/>
+        <path d="M50 83.6 C 25.4 66, 14.4 52.4, 14.4 37.4 A 19 19 0 0 1 50 27.2 A 19 19 0 0 1 85.6 37.4 C 85.6 52.4, 74.6 66, 50 83.6 Z" fill="none" stroke="#F0DDA6" stroke-width=".7" opacity=".45"/>
+        
+        <!-- Wax Seal Embossed KA Text -->
+        <text x="50" y="44" text-anchor="middle" font-family="Georgia, serif" font-size="18" font-weight="700" fill="#5C3D0A" opacity="0.75" letter-spacing="1">KA</text>
+      </symbol>
+
+      <!-- Palace Haveli Silhouette Motif for Day Headers -->
+      <symbol id="haveli-crown" viewBox="0 0 60 32">
+        <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 28 V16 C12 12, 18 10, 22 14 V28 M38 28 V14 C42 10, 48 12, 48 16 V28"/>
+          <!-- Central Grand Dome -->
+          <path d="M22 28 V14 C22 8, 30 4, 30 2 C30 4, 38 8, 38 14 V28"/>
+          <path d="M8 28 H52 M6 30 H54"/>
+          <!-- Kalash Finials -->
+          <circle cx="30" cy="2" r="1.2" fill="currentColor"/>
+          <circle cx="16" cy="11" r="1" fill="currentColor"/>
+          <circle cx="44" cy="11" r="1" fill="currentColor"/>
+        </g>
+      </symbol>
+
+      <symbol id="chev-d" viewBox="0 0 24 24">
+        <path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- ======================================================================
+       INTERACTIVE ENVELOPE COVER
+       ====================================================================== -->
+  <div id="cover">
+    <div class="cover-bloom"></div>
+
+    <!-- 3D Folding Flaps -->
+    <div class="flap flap--l">
+      <svg viewBox="0 0 50 56" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 0 L50 20 L50 56 L0 56 Z" fill="url(#envL)"/>
+        <path d="M0 0 L50 20" fill="none" stroke="#FFFFFF" stroke-width=".55" opacity=".9"/>
+        <path d="M0 .9 L50 20.9" fill="none" stroke="#B08D3F" stroke-width=".28" opacity=".4"/>
+      </svg>
+    </div>
+    <div class="flap flap--r">
+      <svg viewBox="0 0 50 56" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M50 0 L0 20 L0 56 L50 56 Z" fill="url(#envR)"/>
+        <path d="M50 0 L0 20" fill="none" stroke="#FFFFFF" stroke-width=".55" opacity=".9"/>
+        <path d="M50 .9 L0 20.9" fill="none" stroke="#B08D3F" stroke-width=".28" opacity=".4"/>
+      </svg>
+    </div>
+
+    <!-- Premium KA Monogram Crest -->
+    <div class="crest">
+      <div class="royal-monogram">
+        <img src="assets/images/ka_monogram.jpg" alt="Khyati & Aditya Royal Monogram" class="monogram-img">
+      </div>
+    </div>
+
+    <!-- Seal and Enter Button Stack -->
+    <div class="env-stack">
+      <div class="seal" title="Tap the seal to open">
+        <svg viewBox="0 0 100 100"><use href="#waxseal"/></svg>
+      </div>
+
+      <div class="env-words">
+        <svg class="rule rule--sm"><use href="#fine-rule"/></svg>
+        <span class="caps">Our forever begins</span>
+        <div class="tog">together</div>
+        <svg class="rule rule--sm"><use href="#rule-heart"/></svg>
+      </div>
+
+      <button class="tap" id="tap">Tap to open</button>
+    </div>
+  </div>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confetti"></canvas>
+
+  <!-- ======================================================================
+       THE DECK (Vertical Snap Pages)
+       ====================================================================== -->
+  <main id="deck" class="hidden">
+
+    <!-- ─── 1 · HERO & SCRATCH CARD ──────────────────────────────────── -->
+    <section class="page" data-label="Invitation">
+      <div class="page-in text-center">
+        <!-- Premium KA Monogram Crest -->
+        <div class="royal-monogram monogram-small rv" style="--i:0">
+          <img src="assets/images/ka_monogram.jpg" alt="Khyati & Aditya Royal Monogram" class="monogram-img">
+        </div>
+        <h1 class="names rv" style="--i:1">
+          <span class="n">Khyati</span>
+          <span class="amp">&amp;</span>
+          <span class="n">Aditya</span>
+        </h1>
+        <svg class="rule rv" style="--i:2"><use href="#fine-rule"/></svg>
+        <span class="caps rv" style="--i:3">Our Wedding Celebrations</span>
+        <svg class="rule rv" style="--i:4"><use href="#fine-rule"/></svg>
+
+        <!-- Scratch to Reveal Card (With exact Dhawala Resort spelling) -->
+        <div class="scratch-wrap rv" style="--i:5">
+          <div class="scratch-under">
+            <div class="d">03 &amp; 04 December 2026</div>
+            <div class="t">The Dhawala Resort Sariska</div>
+            <div class="v">Alwar, Rajasthan<br><small style="color:var(--gold-dk)">Shubh Muhurat · 05:47 PM</small></div>
+          </div>
+          <canvas id="scratch" aria-label="Scratch to reveal wedding date and venue"></canvas>
+        </div>
+        <p class="scratch-hint" id="scratchHint">Scratch the card to continue</p>
+      </div>
+    </section>
+
+    <!-- ─── 2 · COUNTDOWN ────────────────────────────────────────────── -->
+    <section class="page" data-label="Countdown">
+      <div class="page-in text-center">
+        <span class="caps caps--sm rv" style="--i:0">Save the Date</span>
+        <svg class="rule rv" style="--i:1"><use href="#fine-rule"/></svg>
+        <h2 class="h-serif rv" style="--i:2">Until our<br>forever begins</h2>
+        
+        <div class="clock rv" style="--i:3">
+          <div><span class="u" id="cd">--</span><span class="l">Days</span></div>
+          <div><span class="u" id="ch">--</span><span class="l">Hours</span></div>
+          <div><span class="u" id="cm">--</span><span class="l">Minutes</span></div>
+          <div><span class="u" id="cs">--</span><span class="l">Seconds</span></div>
+        </div>
+
+        <svg class="rule rv" style="--i:4"><use href="#fine-rule"/></svg>
+        <p class="h-hand rv" style="--i:5">counting every moment</p>
+      </div>
+    </section>
+
+    <!-- ─── 3 · THE COUPLE & FAMILIES ────────────────────────────────── -->
+    <section class="page" data-label="The couple">
+      <div class="page-in text-center">
+        <span class="caps caps--sm rv" style="--i:0">Two families · One promise</span>
+        <svg class="rule rv" style="--i:1"><use href="#fine-rule"/></svg>
+        <h2 class="h-serif rv" style="--i:2">Together<br>with our families</h2>
+
+        <div class="pair rv" style="--i:3">
+          <div class="pair-col">
+            <div class="who">Khyati</div>
+            <div class="rel">Daughter of</div>
+            <div class="nm">Love, laughter<br>&amp; family</div>
+          </div>
+          <div class="pair-mid">
+            <span class="stem"></span>
+            <div class="royal-monogram monogram-small" style="transform:scale(0.72)">
+              <img src="assets/images/ka_monogram.jpg" alt="Khyati & Aditya Monogram" class="monogram-img">
+            </div>
+            <span class="stem"></span>
+          </div>
+          <div class="pair-col">
+            <div class="who">Aditya</div>
+            <div class="rel">Son of</div>
+            <div class="nm">Tradition, warmth<br>&amp; family</div>
+          </div>
+        </div>
+
+        <svg class="rule rv" style="--i:4"><use href="#fine-rule"/></svg>
+        <p class="h-hand rv" style="--i:5">united by destiny</p>
+      </div>
+    </section>
+
+    <!-- ─── 4 · UNIQUE 3-DAY CEREMONIES ROYAL PAVILION ──────────────── -->
+    <section class="page" data-label="The ceremonies">
+      <div class="page-in text-center">
+        <h2 class="h-serif rv" style="--i:0">The Ceremonies</h2>
+        <svg class="rule rv" style="--i:1"><use href="#fine-rule"/></svg>
+        <span class="caps caps--sm rv" style="--i:2">3rd &amp; 4th December 2026 · Celebrations</span>
+
+        <div class="ceremonies-container rv" style="--i:3">
+          <!-- Interactive Day Navigator Pills -->
+          <div class="day-nav">
+            <button class="day-pill active" data-day="day1">
+              <svg class="palace-icon"><use href="#haveli-crown"/></svg> 3rd Dec
+            </button>
+            <button class="day-pill" data-day="day2">
+              <svg class="palace-icon"><use href="#haveli-crown"/></svg> 4th Dec
+            </button>
+            <button class="day-pill" data-day="day3">
+              <svg class="palace-icon"><use href="#haveli-crown"/></svg> 5th Dec
+            </button>
+            <button class="day-pill" data-day="all">
+              ✦ All Days
+            </button>
+          </div>
+
+          <!-- Ceremonies Content Deck -->
+          <div class="ceremonies-deck">
+            
+            <!-- ── DAY 1: 3RD DECEMBER 2026 ── -->
+            <div class="ceremony-day-panel active-panel" id="panel-day1">
+              <div class="day-title-wrap">
+                <svg class="day-haveli-crown"><use href="#haveli-crown"/></svg>
+                <h3 class="day-date-heading">3rd December 2026</h3>
+                <p class="day-theme-sub">Arrival, Colours &amp; Music</p>
+              </div>
+
+              <!-- Event: Check-In -->
+              <div class="ceremony-card">
+                <div class="ceremony-badge">
+                  <i class="fa-solid fa-key"></i>
+                </div>
+                <div class="ceremony-content">
+                  <span class="ceremony-time">11:00 AM</span>
+                  <h4 class="ceremony-name">Check-In</h4>
+                  <p class="ceremony-desc">Welcome to The Dhawala Resort Sariska. Settle in amidst the tranquil Aravalli hills.</p>
+                </div>
+              </div>
+
+              <!-- Event: Haldi -->
+              <div class="ceremony-card">
+                <div class="ceremony-badge">
+                  <i class="fa-solid fa-sun"></i>
+                </div>
+                <div class="ceremony-content">
+                  <span class="ceremony-time">01:00 PM Onwards</span>
+                  <h4 class="ceremony-name">Haldi</h4>
+                  <p class="ceremony-desc">A bright afternoon of turmeric hues, laughter, phoolon ki holi and family celebrations.</p>
+                </div>
+              </div>
+
+              <!-- Event: Sangeet -->
+              <div class="ceremony-card">
+                <div class="ceremony-badge">
+                  <i class="fa-solid fa-music"></i>
+                </div>
+                <div class="ceremony-content">
+                  <span class="ceremony-time">07:00 PM Onwards</span>
+                  <h4 class="ceremony-name">Sangeet</h4>
+                  <p class="ceremony-desc">Music, dance, royal beats and the stories that brought us together under the stars.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ── DAY 2: 4TH DECEMBER 2026 ── -->
+            <div class="ceremony-day-panel" id="panel-day2">
+              <div class="day-title-wrap">
+                <svg class="day-haveli-crown"><use href="#haveli-crown"/></svg>
+                <h3 class="day-date-heading">4th December 2026</h3>
+                <p class="day-theme-sub">The Sacred Wedding Day</p>
+              </div>
+
+              <!-- Event: Ganesh Grahshanti & Mameru -->
+              <div class="ceremony-card">
+                <div class="ceremony-badge">
+                  <i class="fa-solid fa-om"></i>
+                </div>
+                <div class="ceremony-content">
+                  <span class="ceremony-time">09:00 AM Onwards</span>
+                  <span class="ceremony-side">Bride Side</span>
+                  <h4 class="ceremony-name">Ganesh Grahshanti &amp; Mameru</h4>
+                  <p class="ceremony-desc">Sacred Vedic prayers, bride-side traditional rituals and ancestral blessings.</p>
+                </div>
+              </div>
+
+              <!-- Event: Baaraat -->
+              <div class="ceremony-card">
+                <div class="ceremony-badge">
+                  <i class="fa-solid fa-horse-head"></i>
+                </div>
+                <div class="ceremony-content">
+                  <span class="ceremony-time">04:00 PM Onwards</span>
+                  <span class="ceremony-side">Groom Side</span>
+                  <h4 class="ceremony-name">Baaraat</h4>
+                  <p class="ceremony-desc">Groom-side grand procession begins with royal dhol, brass band &amp; dancing.</p>
+                </div>
+              </div>
+
+              <!-- Event: Varmala & Pheras -->
+              <div class="ceremony-card">
+                <div class="ceremony-badge">
+                  <i class="fa-solid fa-ring"></i>
+                </div>
+                <div class="ceremony-content">
+                  <span class="ceremony-time">05:00 PM Onwards</span>
+                  <h4 class="ceremony-name">Varmala &amp; Pheras</h4>
+                  <p class="ceremony-desc">The sacred vows around the holy fire where everything becomes one forever.</p>
+                  <div class="muhurat-tag">✦ Shubh Muhurat: 05:47 PM ✦</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ── DAY 3: 5TH DECEMBER 2026 ── -->
+            <div class="ceremony-day-panel" id="panel-day3">
+              <div class="day-title-wrap">
+                <svg class="day-haveli-crown"><use href="#haveli-crown"/></svg>
+                <h3 class="day-date-heading">5th December 2026</h3>
+                <p class="day-theme-sub">Farewell &amp; Sweet Memories</p>
+              </div>
+
+              <!-- Event: Breakfast -->
+              <div class="ceremony-card">
+                <div class="ceremony-badge">
+                  <i class="fa-solid fa-mug-hot"></i>
+                </div>
+                <div class="ceremony-content">
+                  <span class="ceremony-time">Morning</span>
+                  <h4 class="ceremony-name">Breakfast</h4>
+                  <p class="ceremony-desc">A warm morning meal together, recounting yesterday's joy over fresh masala chai.</p>
+                </div>
+              </div>
+
+              <!-- Event: Check-Out -->
+              <div class="ceremony-card">
+                <div class="ceremony-badge">
+                  <i class="fa-solid fa-suitcase-rolling"></i>
+                </div>
+                <div class="ceremony-content">
+                  <span class="ceremony-time">09:00 AM</span>
+                  <h4 class="ceremony-name">Check-Out</h4>
+                  <p class="ceremony-desc">Warm hugs, blessings and sweet memories before the journey home.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── 5 · THE VENUE (With Correct Spelling & Sariska Visual Card) ── -->
+    <section class="page" data-label="The venue">
+      <div class="page-in text-center">
+        <span class="caps caps--sm rv" style="--i:0">Getting there</span>
+        <svg class="rule rv" style="--i:1"><use href="#fine-rule"/></svg>
+        <h2 class="h-serif rv" style="--i:2">The Venue</h2>
+        
+        <div class="deckle rv" style="--i:3">
+          <span class="inner-rule"></span>
+          <div class="ev">
+            <!-- Exact Corrected Spelling: The Dhawala Resort Sariska -->
+            <div class="what" style="font-size:29px">The Dhawala Resort Sariska</div>
+            <div class="where">Nestled beside the Aravallis<br>Alwar, Rajasthan 301001</div>
+            <a class="phone" id="phone" href="tel:+919829012345" style="display:inline-block;margin-top:8px;font-family:var(--serif);font-weight:600;color:var(--navy);text-decoration:none;border-bottom:1px solid rgba(176,141,63,.6);">+91 98290 12345</a>
+          </div>
+        </div>
+
+        <!-- Sariska Palace & Tiger Artwork Card -->
+        <div class="venue-visual-card rv" style="--i:4">
+          <img src="assets/images/sariska_palace_tiger.jpg" alt="The Dhawala Resort Sariska Landscape with Palace and Tiger">
+          <div class="venue-visual-caption">The Dhawala Resort · Sariska Tiger Reserve</div>
+        </div>
+
+        <div class="acts rv" style="--i:5">
+          <a class="btn-royal btn-royal--gold" target="_blank" rel="noopener"
+             href="https://www.google.com/maps/search/?api=1&query=The+Dhawala+Resort+Sariska+Alwar+Rajasthan">
+            Open in Google Maps ↗
+          </a>
+          <a class="btn-royal" id="callBtn" href="tel:+919829012345">
+            Call Resort / Copy
+          </a>
+        </div>
+        <p class="note" id="callNote" role="status"></p>
+        <p class="lede rv" style="--i:6">Somewhere between the hills and Rajasthan's quiet beauty.</p>
+      </div>
+    </section>
+
+    <!-- ─── 6 · CLOSING WITH LOVE ────────────────────────────────────── -->
+    <section class="page" data-label="With love">
+      <div class="page-in text-center">
+        <span class="caps caps--sm rv" style="--i:0">With all our love</span>
+        <svg class="rule rv" style="--i:1"><use href="#fine-rule"/></svg>
+        
+        <!-- Premium KA Monogram Crest -->
+        <div class="royal-monogram monogram-small rv" style="--i:2">
+          <img src="assets/images/ka_monogram.jpg" alt="Khyati & Aditya Monogram" class="monogram-img">
+        </div>
+
+        <p class="h-hand rv" style="--i:3">We can't wait<br>to celebrate with you.</p>
+        <p class="rv" style="--i:4;font-size:14px;color:rgba(27,58,92,.85);margin-top:4px;">Save the date. Pack light. Bring your dancing shoes.</p>
+        <svg class="rule rv" style="--i:5"><use href="#fine-rule"/></svg>
+        <span class="datestamp rv" style="--i:6">03 · 04 · 05 DEC 2026 &nbsp;·&nbsp; Sariska, Rajasthan</span>
+
+        <div class="acts rv" style="--i:7">
+          <button class="btn-royal btn-royal--gold" id="shareBtn">Share on WhatsApp</button>
+          <button class="btn-royal" id="printBtn">Save this invitation</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Chrome Controls -->
+  <nav id="rail-dots" aria-label="Section Navigation"></nav>
+  <button id="next" aria-label="Next Section">
+    <svg><use href="#chev-d"/></svg>
+  </button>
+
+  <!-- Audio Player (Built-in Synthesizer + Optional MP3 source) -->
+  <audio id="track" loop preload="auto" playsinline webkit-playsinline></audio>
+  <button id="music" class="off" aria-label="Toggle Romantic Music" aria-pressed="false" title="Toggle Music">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+      <path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M16 9a4 4 0 0 1 0 6"/><path d="M19 6.5a8 8 0 0 1 0 11"/>
+    </svg>
+  </button>
+
+  <!-- External Lightweight Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Application Logic -->
+  <script src="js/app.js"></script>
+</body>
+</html>
