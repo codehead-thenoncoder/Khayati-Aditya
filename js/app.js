@@ -625,26 +625,56 @@
     });
   }
 
-  /* ── Built-in Romantic Web Audio Synthesizer ────────────────── */
+  /* ── Built-in Royal Indian Wedding Shehnai & Sitar Synthesizer (Raag Yaman) ── */
 
   var mb = document.getElementById('music');
   var track = document.getElementById('track');
   var hasFile = !!(track && track.querySelector('source'));
   var audio = { ctx: null, master: null, bus: null, timer: null, step: 0, next: 0, on: false };
 
-  var BPM = 66, BEAT = 60 / BPM, EIGHTH = BEAT / 2, LOOP = 64;
+  var BPM = 68, BEAT = 60 / BPM, EIGHTH = BEAT / 2, LOOP = 64;
+
+  // Traditional Indian Wedding Harmony (Sa-Pa drone & Raag Yaman chords in D)
   var CHORDS = [
-    [50, 54, 57, 62], // D
-    [47, 50, 54, 59], // Bm
-    [43, 47, 50, 55], // G
-    [45, 49, 52, 57]  // A
+    [50, 57, 62, 66], // D Major (Sa-Pa-Sa-Ga)
+    [45, 52, 57, 61], // A Major (Pa-Re-Pa-Ni)
+    [47, 54, 59, 62], // Bm / Dhaivata touch
+    [43, 50, 55, 62]  // G Major (Ma-Sa-Ga-Sa)
   ];
-  var BASS = [38, 35, 31, 33];
+  var BASS = [38, 33, 35, 31];
+
+  // Authentic Auspicious Wedding Shehnai / Mangal Vaadyam melody
+  // Notes in Raag Yaman / Vivah Mangal Dhun (D key: 62=D4, 64=E4, 66=F#4, 68=G#4, 69=A4, 71=B4, 73=C#5, 74=D5, 76=E5, 78=F#5, 81=A5, 86=D6)
   var MELODY = [
-    [0, 78, 4], [4, 81, 2], [6, 79, 2], [8, 78, 4], [12, 74, 4],
-    [16, 76, 3], [19, 78, 1], [20, 79, 4], [24, 81, 4], [28, 78, 2], [30, 76, 2],
-    [32, 81, 4], [36, 83, 2], [38, 81, 2], [40, 78, 4], [44, 76, 4],
-    [48, 74, 3], [51, 76, 1], [52, 78, 4], [56, 76, 4], [60, 74, 4]
+    // Phrase 1: Auspicious Welcoming Alaap
+    [0,  74, 4],  // Sa'
+    [4,  76, 2],  // Re'
+    [6,  78, 3],  // Ga'
+    [9,  76, 2],  // Re'
+    [11, 74, 2],  // Sa'
+    [13, 73, 3],  // Ni
+    
+    // Phrase 2: Royal Sangeet & Shehnai Ornament
+    [16, 74, 4],  // Sa'
+    [20, 78, 3],  // Ga'
+    [23, 81, 4],  // Pa'
+    [27, 78, 3],  // Ga'
+    [30, 76, 2],  // Re'
+    
+    // Phrase 3: Sacred Vows & Pheras Climax
+    [32, 81, 4],  // Pa'
+    [36, 83, 2],  // Dha'
+    [38, 86, 4],  // High Sa"
+    [42, 85, 2],  // Ni'
+    [44, 83, 2],  // Dha'
+    [46, 81, 3],  // Pa'
+    
+    // Phrase 4: Gentle Shehnai Resolution & Blessings
+    [48, 78, 3],  // Ga'
+    [51, 76, 2],  // Re'
+    [53, 74, 3],  // Sa'
+    [56, 73, 2],  // Ni
+    [58, 74, 5]   // Sa' (Holding sustained note)
   ];
 
   function hz(m) {
@@ -652,12 +682,12 @@
   }
 
   function makeReverb(ctx) {
-    var len = ctx.sampleRate * 2.5;
+    var len = ctx.sampleRate * 2.8;
     var buf = ctx.createBuffer(2, len, ctx.sampleRate);
     for (var c = 0; c < 2; c++) {
       var d = buf.getChannelData(c);
       for (var i = 0; i < len; i++) {
-        d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 2.5);
+        d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 2.2);
       }
     }
     var cv = ctx.createConvolver();
@@ -673,23 +703,23 @@
     master.gain.value = 0;
 
     var comp = ctx.createDynamicsCompressor();
-    comp.threshold.value = -18;
-    comp.ratio.value = 3;
-    comp.attack.value = 0.006;
-    comp.release.value = 0.25;
+    comp.threshold.value = -16;
+    comp.ratio.value = 3.5;
+    comp.attack.value = 0.005;
+    comp.release.value = 0.28;
 
     var bus = ctx.createGain();
     bus.gain.value = 1;
     var tone = ctx.createBiquadFilter();
     tone.type = 'lowpass';
-    tone.frequency.value = 3200;
-    tone.Q.value = 0.4;
+    tone.frequency.value = 3600;
+    tone.Q.value = 0.6;
 
     var verb = makeReverb(ctx);
     var wet = ctx.createGain();
-    wet.gain.value = 0.35;
+    wet.gain.value = 0.42;
     var dry = ctx.createGain();
-    dry.gain.value = 0.82;
+    dry.gain.value = 0.78;
 
     bus.connect(tone);
     tone.connect(dry);
@@ -706,30 +736,125 @@
     return true;
   }
 
+  // Tanpura Ambient Drone (Sa-Pa resonance)
   function synthPad(t, midi, dur, vol) {
     var ctx = audio.ctx;
     var g = ctx.createGain();
     g.gain.setValueAtTime(0, t);
-    g.gain.linearRampToValueAtTime(vol, t + 1.2);
-    g.gain.setValueAtTime(vol, t + dur - 1.2);
+    g.gain.linearRampToValueAtTime(vol, t + 1.4);
+    g.gain.setValueAtTime(vol, t + dur - 1.4);
     g.gain.linearRampToValueAtTime(0, t + dur);
     g.connect(audio.bus);
-    [0, -6, 7].forEach(function (cents, i) {
+    [0, -4, 5, 12].forEach(function (cents, i) {
       var o = ctx.createOscillator();
-      o.type = i === 0 ? 'triangle' : 'sine';
+      o.type = i === 0 ? 'sawtooth' : 'sine';
       o.frequency.value = hz(midi);
       o.detune.value = cents;
-      o.connect(g);
+      
+      var f = ctx.createBiquadFilter();
+      f.type = 'lowpass';
+      f.frequency.value = 1200;
+      o.connect(f);
+      f.connect(g);
+
       o.start(t);
       o.stop(t + dur + 0.05);
     });
+  }
+
+  // Resonant Indian Sitar Pluck / Meend
+  function synthPluck(t, midi, vel) {
+    var ctx = audio.ctx;
+    var g = ctx.createGain();
+    g.gain.setValueAtTime(0, t);
+    g.gain.linearRampToValueAtTime(vel, t + 0.008);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + 2.2);
+
+    // Sitar string metallic body filter
+    var f = ctx.createBiquadFilter();
+    f.type = 'bandpass';
+    f.frequency.value = hz(midi) * 1.8;
+    f.Q.value = 4.2;
+
+    var o = ctx.createOscillator();
+    o.type = 'sawtooth';
+    o.frequency.setValueAtTime(hz(midi) * 1.02, t);
+    o.frequency.exponentialRampToValueAtTime(hz(midi), t + 0.06);
+
+    var o2 = ctx.createOscillator();
+    o2.type = 'sine';
+    o2.frequency.value = hz(midi + 12);
+    var g2 = ctx.createGain();
+    g2.gain.value = 0.22;
+
+    o.connect(f);
+    f.connect(g);
+    o2.connect(g2);
+    g2.connect(g);
+    g.connect(audio.bus);
+
+    o.start(t);
+    o.stop(t + 2.3);
+    o2.start(t);
+    o2.stop(t + 2.3);
+  }
+
+  // Traditional Shehnai / Bansuri Melodic Lead
+  function synthLead(t, midi, dur) {
+    var ctx = audio.ctx;
+    var g = ctx.createGain();
+    var peak = 0.22;
+    g.gain.setValueAtTime(0, t);
+    g.gain.linearRampToValueAtTime(peak, t + 0.08);
+    g.gain.linearRampToValueAtTime(peak * 0.85, t + 0.35);
+    g.gain.setValueAtTime(peak * 0.85, t + Math.max(0.38, dur - 0.25));
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur + 0.6);
+
+    // Formant filter for authentic Shehnai reed character
+    var filter = ctx.createBiquadFilter();
+    filter.type = 'bandpass';
+    filter.frequency.setValueAtTime(hz(midi) * 1.5, t);
+    filter.Q.value = 2.4;
+
+    var o = ctx.createOscillator();
+    o.type = 'sawtooth';
+    // Portamento / Meend slide into note
+    o.frequency.setValueAtTime(hz(midi - 1), t);
+    o.frequency.exponentialRampToValueAtTime(hz(midi), t + 0.12);
+
+    var o2 = ctx.createOscillator();
+    o2.type = 'triangle';
+    o2.frequency.value = hz(midi);
+    o2.detune.value = 8;
+
+    // Vibrato LFO for emotional Indian classical touch
+    var lfo = ctx.createOscillator();
+    lfo.frequency.value = 5.4;
+    var lg = ctx.createGain();
+    lg.gain.setValueAtTime(0, t);
+    lg.gain.linearRampToValueAtTime(6.5, t + Math.min(0.6, dur));
+    lfo.connect(lg);
+    lg.connect(o.detune);
+    lg.connect(o2.detune);
+
+    o.connect(filter);
+    filter.connect(g);
+    o2.connect(g);
+    g.connect(audio.bus);
+
+    o.start(t);
+    o.stop(t + dur + 0.7);
+    o2.start(t);
+    o2.stop(t + dur + 0.7);
+    lfo.start(t);
+    lfo.stop(t + dur + 0.7);
   }
 
   function synthBass(t, midi, dur) {
     var ctx = audio.ctx;
     var g = ctx.createGain();
     g.gain.setValueAtTime(0, t);
-    g.gain.linearRampToValueAtTime(0.14, t + 0.09);
+    g.gain.linearRampToValueAtTime(0.12, t + 0.08);
     g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
     var o = ctx.createOscillator();
     o.type = 'sine';
@@ -740,71 +865,6 @@
     o.stop(t + dur + 0.05);
   }
 
-  function synthPluck(t, midi, vel) {
-    var ctx = audio.ctx;
-    var g = ctx.createGain();
-    g.gain.setValueAtTime(0, t);
-    g.gain.linearRampToValueAtTime(vel, t + 0.01);
-    g.gain.exponentialRampToValueAtTime(0.0001, t + 1.8);
-    var o = ctx.createOscillator();
-    o.type = 'sine';
-    o.frequency.value = hz(midi);
-    var o2 = ctx.createOscillator();
-    o2.type = 'sine';
-    o2.frequency.value = hz(midi + 12);
-    var g2 = ctx.createGain();
-    g2.gain.value = 0.14;
-    o2.connect(g2);
-    g2.connect(g);
-    o.connect(g);
-    g.connect(audio.bus);
-    o.start(t);
-    o.stop(t + 1.9);
-    o2.start(t);
-    o2.stop(t + 1.9);
-  }
-
-  function synthLead(t, midi, dur) {
-    var ctx = audio.ctx;
-    var g = ctx.createGain();
-    var peak = 0.17;
-    g.gain.setValueAtTime(0, t);
-    g.gain.linearRampToValueAtTime(peak, t + 0.05);
-    g.gain.linearRampToValueAtTime(peak * 0.72, t + 0.34);
-    g.gain.setValueAtTime(peak * 0.72, t + Math.max(0.36, dur - 0.28));
-    g.gain.exponentialRampToValueAtTime(0.0001, t + dur + 0.5);
-    g.connect(audio.bus);
-
-    var o = ctx.createOscillator();
-    o.type = 'triangle';
-    o.frequency.value = hz(midi);
-    var o2 = ctx.createOscillator();
-    o2.type = 'sine';
-    o2.frequency.value = hz(midi);
-    o2.detune.value = 6;
-    var g2 = ctx.createGain();
-    g2.gain.value = 0.55;
-    o2.connect(g2);
-    g2.connect(g);
-
-    var lfo = ctx.createOscillator();
-    lfo.frequency.value = 5.1;
-    var lg = ctx.createGain();
-    lg.gain.setValueAtTime(0, t);
-    lg.gain.linearRampToValueAtTime(3.4, t + Math.min(0.7, dur));
-    lfo.connect(lg);
-    lg.connect(o.detune);
-    lg.connect(o2.detune);
-
-    o.connect(g);
-    o.start(t);
-    o.stop(t + dur + 0.6);
-    o2.start(t);
-    o2.stop(t + dur + 0.6);
-    lfo.start(t);
-    lfo.stop(t + dur + 0.6);
-  }
-
   function scheduleSynth() {
     var ctx = audio.ctx;
     while (audio.next < ctx.currentTime + 0.4) {
@@ -813,21 +873,25 @@
       var bar = Math.floor(step / 8);
       var chord = CHORDS[bar % 4];
 
+      // Tanpura Drone
       if (step % 8 === 0) {
         chord.forEach(function (n, i) {
-          synthPad(t, n, BEAT * 4, i === 0 ? 0.06 : 0.045);
+          synthPad(t, n, BEAT * 4, i === 0 ? 0.055 : 0.04);
         });
-        synthBass(t, BASS[bar % 4], BEAT * 2.6);
+        synthBass(t, BASS[bar % 4], BEAT * 2.8);
       }
       if (step % 8 === 4) {
-        synthBass(t, BASS[bar % 4] + 7, BEAT * 1.6);
+        synthBass(t, BASS[bar % 4] + 7, BEAT * 1.8);
       }
 
-      var pattern = [0, 2, 1, 3, 2, 1, 3, 2];
-      if (step % 2 === 0 && step % 8 !== 6) {
-        synthPluck(t, chord[pattern[step % 8]] + 12, step % 8 === 0 ? 0.07 : 0.05);
+      // Sitar Taans & Plucks
+      var sitarPattern = [0, 2, 1, 3, 2, 1, 3, 1];
+      if (step % 2 === 0) {
+        var note = chord[sitarPattern[step % 8]] + (step % 4 === 0 ? 12 : 24);
+        synthPluck(t, note, step % 8 === 0 ? 0.075 : 0.045);
       }
 
+      // Royal Shehnai Lead Line
       for (var i = 0; i < MELODY.length; i++) {
         if (MELODY[i][0] === step) {
           synthLead(t, MELODY[i][1], MELODY[i][2] * EIGHTH);
