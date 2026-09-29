@@ -994,49 +994,107 @@ body.pre-scratch .page.live .scratch-hint {
 }
 
 /* ==========================================================================
-   RSVP & BLESSINGS SECTION
+   RSVP & COUPLE WITH FOLDED HANDS SECTION
    ========================================================================== */
-.blessing-box {
-  margin: 12px 0 8px;
+.couple-folded-hands-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 10px 0 12px;
+  width: 100%;
+  position: relative;
+}
+
+.couple-cutout-card {
+  flex: 0 0 28%;
+  max-width: 135px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  align-items: center;
+  position: relative;
 }
 
-.blessing-input {
+.cutout-frame {
   width: 100%;
-  padding: 9px 14px;
-  border-radius: 8px;
-  border: 1px solid rgba(196, 159, 78, 0.55);
-  background: rgba(255, 255, 255, 0.88);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+  filter: drop-shadow(0 8px 18px rgba(10, 25, 47, 0.28)) drop-shadow(0 2px 8px rgba(196, 159, 78, 0.4));
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+
+.cutout-frame:hover {
+  transform: translateY(-4px) scale(1.04);
+}
+
+.cutout-img {
+  width: 100%;
+  height: clamp(140px, 26vh, 210px);
+  object-fit: contain;
+  object-position: bottom center;
+  display: block;
+}
+
+.cutout-title {
   font-family: var(--serif);
-  font-size: 13px;
+  font-size: clamp(11.5px, 2.8vw, 14px);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--navy-d);
-  outline: none;
+  margin-top: 4px;
+  border-bottom: 1.5px solid rgba(196, 159, 78, 0.55);
+  padding-bottom: 2px;
 }
 
-.blessing-input:focus {
-  border-color: var(--gold);
-  background: #FFF;
-  box-shadow: 0 0 8px rgba(196, 159, 78, 0.35);
+.couple-folded-center {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 4px;
 }
 
-.blessing-feedback {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--gold-dk);
-  min-height: 16px;
+.couple-folded-center .royal-monogram {
+  margin: 0 0 4px;
+}
+
+.couple-folded-center .h-hand {
+  font-size: clamp(17px, 3.8vw, 23px);
+  line-height: 1.25;
+  margin: 4px 0 4px;
+  color: var(--navy-d);
+}
+
+.blessing-ornament {
+  color: var(--gold);
+  font-size: 15px;
+  margin: 2px 0 3px;
+  filter: drop-shadow(0 1px 3px rgba(196, 159, 78, 0.4));
 }
 
 .datestamp {
   display: block;
-  margin-top: 6px;
+  margin-top: 4px;
   font-family: var(--serif);
   font-weight: 700;
-  font-size: 12.5px;
-  letter-spacing: .18em;
+  font-size: clamp(10.5px, 2.4vw, 12px);
+  letter-spacing: .15em;
   text-transform: uppercase;
   color: var(--navy-d);
+  line-height: 1.4;
+}
+
+.resort-sub {
+  font-size: 0.88em;
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: rgba(27, 58, 92, 0.85);
+  display: block;
 }
 
 /* ==========================================================================
