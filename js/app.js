@@ -597,6 +597,8 @@
         );
       }
     });
+  });
+
   /* ── Interactive Blessing Box ────────────────────────────────── */
   var sendBlessingBtn = document.getElementById('sendBlessingBtn');
   var blessingInput = document.getElementById('blessingInput');

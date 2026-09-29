@@ -108,6 +108,7 @@ button {
   height: 56%;
   width: 50%;
   z-index: 4;
+  pointer-events: none;
   transition: transform 1050ms cubic-bezier(.62, 0, .24, 1), opacity 820ms ease 180ms;
 }
 
