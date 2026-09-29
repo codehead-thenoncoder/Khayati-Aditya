@@ -596,10 +596,20 @@
 
   <!-- Audio Player (Built-in Synthesizer + Optional MP3 source) -->
   <audio id="track" loop preload="auto" playsinline webkit-playsinline></audio>
-  <button id="music" class="off" aria-label="Toggle Romantic Music" aria-pressed="false" title="Toggle Music">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-      <path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M16 9a4 4 0 0 1 0 6"/><path d="M19 6.5a8 8 0 0 1 0 11"/>
+  <button id="music" class="off" aria-label="Toggle Romantic Music" aria-pressed="false" title="Play Music">
+    <!-- State 1: Muted / Off Icon (Speaker Muted with X) -->
+    <svg class="music-icon music-icon--off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+      <line x1="22" y1="9" x2="16" y2="15"/>
+      <line x1="16" y1="9" x2="22" y2="15"/>
     </svg>
+    <!-- State 2: Playing / On Icon (Speaker with animated waves) -->
+    <svg class="music-icon music-icon--on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+      <path class="sound-wave wave-1" d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+      <path class="sound-wave wave-2" d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+    </svg>
+    <span class="music-ripple" aria-hidden="true"></span>
   </button>
 
   <!-- External Lightweight Libraries -->

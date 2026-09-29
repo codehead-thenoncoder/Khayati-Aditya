@@ -923,6 +923,8 @@
     if (mb) {
       mb.classList.remove('off');
       mb.setAttribute('aria-pressed', 'true');
+      mb.setAttribute('title', 'Mute Music');
+      mb.setAttribute('aria-label', 'Mute Music');
     }
   }
 
@@ -945,6 +947,8 @@
     if (mb) {
       mb.classList.add('off');
       mb.setAttribute('aria-pressed', 'false');
+      mb.setAttribute('title', 'Play Music');
+      mb.setAttribute('aria-label', 'Play Music');
     }
   }
 

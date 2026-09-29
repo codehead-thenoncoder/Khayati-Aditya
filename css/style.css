@@ -1234,21 +1234,101 @@ body.opened #next {
   align-items: center;
   justify-content: center;
   color: var(--gold-lt);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 14px rgba(223, 192, 122, 0.45), 0 6px 18px rgba(0, 0, 0, 0.5);
   transition: all 250ms ease;
+  user-select: none;
 }
 
 body.opened #music {
   display: flex;
 }
 
-#music svg {
-  width: 18px;
-  height: 18px;
+#music .music-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  transition: transform 200ms ease;
 }
 
+#music:hover .music-icon {
+  transform: scale(1.08);
+}
+
+/* Off state: Show muted icon, hide playing icon */
 #music.off {
-  opacity: 0.6;
+  opacity: 0.72;
+  border-color: rgba(196, 159, 78, 0.45);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+}
+
+#music.off .music-icon--off {
+  display: block;
+}
+
+#music.off .music-icon--on {
+  display: none;
+}
+
+#music.off .music-ripple {
+  display: none;
+}
+
+/* On / Playing state: Hide muted icon, show playing icon with animating waves */
+#music:not(.off) {
+  opacity: 1;
+  border-color: var(--gold);
+  box-shadow: 0 0 18px rgba(223, 192, 122, 0.65), 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+
+#music:not(.off) .music-icon--off {
+  display: none;
+}
+
+#music:not(.off) .music-icon--on {
+  display: block;
+}
+
+/* Sound wave animations when playing */
+@keyframes soundWavePulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.92);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+#music:not(.off) .wave-1 {
+  transform-origin: 11px 12px;
+  animation: soundWavePulse 1.2s ease-in-out infinite;
+}
+
+#music:not(.off) .wave-2 {
+  transform-origin: 11px 12px;
+  animation: soundWavePulse 1.2s ease-in-out 0.3s infinite;
+}
+
+/* Subtle ambient audio ripple ring */
+@keyframes musicPulseRing {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.75;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+#music:not(.off) .music-ripple {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(223, 192, 122, 0.6);
+  animation: musicPulseRing 2.2s cubic-bezier(0.2, 0.8, 0.3, 1) infinite;
+  pointer-events: none;
 }
 
 /* Page entrance reveals */
