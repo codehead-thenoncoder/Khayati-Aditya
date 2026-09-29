@@ -597,7 +597,31 @@
         );
       }
     });
-  });
+  /* ── Interactive Blessing Box ────────────────────────────────── */
+  var sendBlessingBtn = document.getElementById('sendBlessingBtn');
+  var blessingInput = document.getElementById('blessingInput');
+  var blessingFeedback = document.getElementById('blessingFeedback');
+
+  if (sendBlessingBtn && blessingInput) {
+    sendBlessingBtn.addEventListener('click', function () {
+      var text = blessingInput.value.trim();
+      if (!text) {
+        if (blessingFeedback) blessingFeedback.textContent = "Please enter your wish or blessing first! ✨";
+        return;
+      }
+      blessingInput.value = "";
+      if (blessingFeedback) {
+        blessingFeedback.textContent = "Thank you for your heartfelt blessing! 🙏✨";
+      }
+      celebrate();
+    });
+
+    blessingInput.addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+        sendBlessingBtn.click();
+      }
+    });
+  }
 
   /* ── Built-in Romantic Web Audio Synthesizer ────────────────── */
 
