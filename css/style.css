@@ -985,17 +985,17 @@ body.pre-scratch .page.live .scratch-hint {
    ========================================================================== */
 .couple-folded-hands-container {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
-  gap: 8px;
+  gap: 6px;
   margin: 10px 0 12px;
   width: 100%;
   position: relative;
 }
 
 .couple-cutout-card {
-  flex: 0 0 28%;
-  max-width: 135px;
+  flex: 0 0 29%;
+  max-width: 125px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1018,7 +1018,8 @@ body.pre-scratch .page.live .scratch-hint {
 
 .cutout-img {
   width: 100%;
-  height: clamp(140px, 26vh, 210px);
+  aspect-ratio: 8 / 14;
+  height: clamp(140px, 25vh, 205px);
   object-fit: contain;
   object-position: bottom center;
   display: block;
@@ -1026,14 +1027,15 @@ body.pre-scratch .page.live .scratch-hint {
 
 .cutout-title {
   font-family: var(--serif);
-  font-size: clamp(11.5px, 2.8vw, 14px);
+  font-size: clamp(11px, 2.7vw, 13.5px);
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--navy-d);
-  margin-top: 4px;
+  margin-top: 5px;
   border-bottom: 1.5px solid rgba(196, 159, 78, 0.55);
   padding-bottom: 2px;
+  white-space: nowrap;
 }
 
 .couple-folded-center {
@@ -1044,6 +1046,7 @@ body.pre-scratch .page.live .scratch-hint {
   align-items: center;
   text-align: center;
   padding: 0 4px;
+  align-self: center;
 }
 
 .couple-folded-center .royal-monogram {
